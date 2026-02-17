@@ -1,0 +1,17 @@
+version = "1.0"
+
+[metadata]
+author_name = "SWE Harbor"
+author_email = "swe-harbor@example.com"
+difficulty = "easy"
+category = "programming"
+tags = ["python", "string-processing", "text-analysis"]
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+docker_image = "python:3.11-slim"
