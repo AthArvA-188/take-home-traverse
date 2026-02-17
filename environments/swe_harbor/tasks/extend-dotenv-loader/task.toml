@@ -1,0 +1,17 @@
+version = "1.0"
+
+[metadata]
+author_name = "Traverse"
+author_email = "intern@traverse.ai"
+difficulty = "medium"
+category = "programming"
+tags = ["python", "dotenv", "implementation", "validation"]
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+docker_image = "python:3.11-slim"
