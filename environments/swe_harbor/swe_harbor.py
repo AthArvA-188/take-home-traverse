@@ -37,9 +37,17 @@ class SweHarborEnv(HarborEnv):
         )
 
     async def build_env_vars(self, state: vf.State) -> dict[str, str]:
-        """Add OPENAI_API_KEY so the OpenAI SDK inside the container works."""
+        """Configure the OpenAI SDK inside the container to use OpenRouter."""
+        import os
+
         env_vars = await super().build_env_vars(state)
-        env_vars.setdefault("OPENAI_API_KEY", "dummy-key")
+        env_vars.setdefault(
+            "OPENAI_BASE_URL", "https://openrouter.ai/api/v1"
+        )
+        env_vars.setdefault(
+            "OPENAI_API_KEY",
+            os.environ.get("OPENROUTER_API_KEY", ""),
+        )
         return env_vars
 
     async def post_sandbox_setup(self, state: vf.State) -> None:
@@ -85,7 +93,7 @@ import sys
 from openai import OpenAI
 
 MAX_TURNS = 50
-MODEL = os.environ.get("OPENAI_MODEL", "gpt-4")
+MODEL = os.environ.get("OPENAI_MODEL", "openai/gpt-4o")
 
 SYSTEM_PROMPT = (
     "You are a skilled software engineer. You have access to tools for running "
