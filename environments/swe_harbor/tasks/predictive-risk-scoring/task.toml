@@ -1,0 +1,14 @@
+version = "1.0"
+
+[metadata]
+author_name = "SWE Harbor"
+author_email = "harbor@example.com"
+difficulty = "very_hard"
+category = "programming"
+tags = ["python", "django", "statistics", "feature-engineering", "risk-modeling", "multi-signal"]
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
